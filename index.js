@@ -7,7 +7,17 @@
 
 
 function hexStringToRGB(hexString) {
-  
-} 
+    let rgb = {r:0, g:0, b:0} 
+    let num = 0
+    let x = Object.keys(rgb)
+    hexString.includes("#") ? hexString = hexString.toLowerCase().substring(1) : null
+    for (let i = 0; i < hexString.length; i += 2) {
+        string = hexString[i] + hexString[i + 1]
+        string === 'ff' ? rgb[x[num]] = 255 
+        : (string = parseInt(string, 16)) & (rgb[x[num]] = string)  
+        num++
+    }
+    return rgb
+}
 
 console.log(hexStringToRGB("#FF9933"), {r:255, g:153, b:51})
